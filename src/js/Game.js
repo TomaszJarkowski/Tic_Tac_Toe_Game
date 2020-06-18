@@ -21,42 +21,43 @@ class Game {
             ["", "", ""],
         ];
     }
-    pick = (e) => {
+    pick = ({
+        target
+    }) => {
         const {
             row,
             column
-        } = e.target.dataset;
+        } = target.dataset;
         if (this.round % 2 == 0) {
             if (
-                e.target.innerHTML == this.playerO ||
-                e.target.innerHTML == this.playerX ||
-                e.target.parentNode.innerHTML == this.playerO ||
-                e.target.parentNode.innerHTML == this.playerX
+                target.innerHTML == this.playerO ||
+                target.innerHTML == this.playerX ||
+                target.parentNode.innerHTML == this.playerO ||
+                target.parentNode.innerHTML == this.playerX
             ) {
                 return;
             } else {
                 this.nextPlayer.textContent = "O";
 
-                e.target.innerHTML = this.playerX;
+                target.innerHTML = this.playerX;
                 this.turn = "X";
             }
         } else {
             if (
-                e.target.innerHTML == this.playerO ||
-                e.target.innerHTML == this.playerX ||
-                e.target.parentNode.innerHTML == this.playerO ||
-                e.target.parentNode.innerHTML == this.playerX
+                target.innerHTML == this.playerO ||
+                target.innerHTML == this.playerX ||
+                target.parentNode.innerHTML == this.playerO ||
+                target.parentNode.innerHTML == this.playerX
             ) {
                 return;
             } else {
                 this.nextPlayer.textContent = "X";
 
-                e.target.innerHTML = this.playerO;
+                target.innerHTML = this.playerO;
                 this.turn = "O";
             }
         }
         this.round++;
-
         this.board[row][column] = this.turn;
         this.check();
     };
@@ -72,10 +73,7 @@ class Game {
             (result[6] == "O" && result[4] == "O" && result[2] == "O") ||
             (result[0] == "O" && result[4] == "O" && result[8] == "O")
         ) {
-            this.winPlayer.textContent = " O";
-            this.winO++;
-            this.winsPlayerO.textContent = this.winO;
-            this.clearBoard();
+            this.displayResult("O")
         } else if (
             (result[8] == "X" && result[7] == "X" && result[6] == "X") ||
             (result[3] == "X" && result[4] == "X" && result[5] == "X") ||
@@ -86,10 +84,7 @@ class Game {
             (result[6] == "X" && result[4] == "X" && result[2] == "X") ||
             (result[0] == "X" && result[4] == "X" && result[8] == "X")
         ) {
-            this.winPlayer.textContent = " X";
-            this.winX++;
-            this.winsPlayerX.textContent = this.winX;
-            this.clearBoard();
+            this.displayResult("X")
         } else if (
             result[0] !== "" &&
             result[1] !== "" &&
@@ -101,12 +96,23 @@ class Game {
             result[7] !== "" &&
             result[8] !== ""
         ) {
-            this.winPlayer.textContent = " -";
-            this.clearBoard();
+            this.displayResult("-")
         } else {
             return;
         }
     };
+
+    displayResult = (lastWin) => {
+        if (lastWin == "X") {
+            this.winX++;
+            this.winsPlayerX.textContent = this.winX;
+        } else if (lastWin == "O") {
+            this.winO++;
+            this.winsPlayerO.textContent = this.winO;
+        }
+        this.winPlayer.textContent = lastWin;
+        this.clearBoard();
+    }
 
     clearBoard = () => {
         this.boxes.forEach((box) => {
@@ -119,7 +125,7 @@ class Game {
         ];
     };
 
-    resetResult = (e) => {
+    resetResult = () => {
         this.winO = 0;
         this.winX = 0;
         this.winsPlayerO.textContent = this.winO;

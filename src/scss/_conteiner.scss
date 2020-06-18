@@ -17,7 +17,7 @@
     flex-wrap: wrap;
     width: 300px;
     justify-content: space-around;
-    box-shadow: 0 0 5px 3px black;
+    box-shadow: 0 0 5px 4px rgb(255, 255, 255);
     border-radius: 10px;
     background-color: darken($base-color, 15);
 
@@ -61,7 +61,7 @@
     border-radius: 25px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 5px 3px black;
+    box-shadow: 0 0 5px 4px rgb(255, 255, 255);
     background-color: darken($base-color, 15);
     color: $font-color;
     margin-top: 20px;
