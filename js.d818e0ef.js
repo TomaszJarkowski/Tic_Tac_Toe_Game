@@ -216,25 +216,26 @@ var Game = function Game() {
 
   _classCallCheck(this, Game);
 
-  this.pick = function (e) {
-    var _e$target$dataset = e.target.dataset,
-        row = _e$target$dataset.row,
-        column = _e$target$dataset.column;
+  this.pick = function (_ref) {
+    var target = _ref.target;
+    var _target$dataset = target.dataset,
+        row = _target$dataset.row,
+        column = _target$dataset.column;
 
     if (_this.round % 2 == 0) {
-      if (e.target.innerHTML == _this.playerO || e.target.innerHTML == _this.playerX || e.target.parentNode.innerHTML == _this.playerO || e.target.parentNode.innerHTML == _this.playerX) {
+      if (target.innerHTML == _this.playerO || target.innerHTML == _this.playerX || target.parentNode.innerHTML == _this.playerO || target.parentNode.innerHTML == _this.playerX) {
         return;
       } else {
         _this.nextPlayer.textContent = "O";
-        e.target.innerHTML = _this.playerX;
+        target.innerHTML = _this.playerX;
         _this.turn = "X";
       }
     } else {
-      if (e.target.innerHTML == _this.playerO || e.target.innerHTML == _this.playerX || e.target.parentNode.innerHTML == _this.playerO || e.target.parentNode.innerHTML == _this.playerX) {
+      if (target.innerHTML == _this.playerO || target.innerHTML == _this.playerX || target.parentNode.innerHTML == _this.playerO || target.parentNode.innerHTML == _this.playerX) {
         return;
       } else {
         _this.nextPlayer.textContent = "X";
-        e.target.innerHTML = _this.playerO;
+        target.innerHTML = _this.playerO;
         _this.turn = "O";
       }
     }
@@ -251,24 +252,28 @@ var Game = function Game() {
     });
 
     if (result[8] == "O" && result[7] == "O" && result[6] == "O" || result[3] == "O" && result[4] == "O" && result[5] == "O" || result[0] == "O" && result[1] == "O" && result[2] == "O" || result[0] == "O" && result[3] == "O" && result[6] == "O" || result[1] == "O" && result[4] == "O" && result[7] == "O" || result[2] == "O" && result[5] == "O" && result[8] == "O" || result[6] == "O" && result[4] == "O" && result[2] == "O" || result[0] == "O" && result[4] == "O" && result[8] == "O") {
-      _this.winPlayer.textContent = " O";
-      _this.winO++;
-      _this.winsPlayerO.textContent = _this.winO;
-
-      _this.clearBoard();
+      _this.displayResult("O");
     } else if (result[8] == "X" && result[7] == "X" && result[6] == "X" || result[3] == "X" && result[4] == "X" && result[5] == "X" || result[0] == "X" && result[1] == "X" && result[2] == "X" || result[0] == "X" && result[3] == "X" && result[6] == "X" || result[1] == "X" && result[4] == "X" && result[7] == "X" || result[2] == "X" && result[5] == "X" && result[8] == "X" || result[6] == "X" && result[4] == "X" && result[2] == "X" || result[0] == "X" && result[4] == "X" && result[8] == "X") {
-      _this.winPlayer.textContent = " X";
-      _this.winX++;
-      _this.winsPlayerX.textContent = _this.winX;
-
-      _this.clearBoard();
+      _this.displayResult("X");
     } else if (result[0] !== "" && result[1] !== "" && result[2] !== "" && result[3] !== "" && result[4] !== "" && result[5] !== "" && result[6] !== "" && result[7] !== "" && result[8] !== "") {
-      _this.winPlayer.textContent = " -";
-
-      _this.clearBoard();
+      _this.displayResult("-");
     } else {
       return;
     }
+  };
+
+  this.displayResult = function (lastWin) {
+    if (lastWin == "X") {
+      _this.winX++;
+      _this.winsPlayerX.textContent = _this.winX;
+    } else if (lastWin == "O") {
+      _this.winO++;
+      _this.winsPlayerO.textContent = _this.winO;
+    }
+
+    _this.winPlayer.textContent = lastWin;
+
+    _this.clearBoard();
   };
 
   this.clearBoard = function () {
@@ -279,7 +284,7 @@ var Game = function Game() {
     _this.board = [["", "", ""], ["", "", ""], ["", "", ""]];
   };
 
-  this.resetResult = function (e) {
+  this.resetResult = function () {
     _this.winO = 0;
     _this.winX = 0;
     _this.winsPlayerO.textContent = _this.winO;
@@ -328,12 +333,12 @@ var boxes = _toConsumableArray(document.querySelectorAll(".box"));
 var btnReset = document.querySelector("button");
 var game = new _Game.Game();
 boxes.forEach(function (box) {
-  return box.addEventListener('click', function (e) {
+  return box.addEventListener("click", function (e) {
     return game.pick(e);
   });
 });
-btnReset.addEventListener('click', function (e) {
-  return game.resetResult(e);
+btnReset.addEventListener("click", function () {
+  return game.resetResult();
 });
 },{"../scss/style.scss":"src/scss/style.scss","./Game.js":"src/js/Game.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -363,7 +368,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53872" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58892" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
