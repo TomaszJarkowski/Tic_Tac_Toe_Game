@@ -1,0 +1,77 @@
+.conteiner {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: map-get($breakpoints, sm)) {
+        flex-direction: row;
+        justify-content: center;
+
+    }
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    justify-content: space-around;
+    box-shadow: 0 0 5px 3px black;
+    border-radius: 10px;
+    background-color: darken($base-color, 15);
+
+    @media screen and (min-width: map-get($breakpoints, sm)) {
+        width: 370px;
+        height: 370px;
+        padding: 10px;
+    }
+
+    .box {
+        width: 80px;
+        height: 80px;
+        margin: 5px;
+        background-color: white;
+        box-shadow: 0 0 8px 1px #76d275;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background-color: #76d275;
+        }
+
+        .box i {
+            font-size: 40px;
+        }
+
+        @media screen and (min-width: map-get($breakpoints, sm)) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+}
+
+.info {
+
+    text-align: center;
+    border-radius: 25px;
+    width: 200px;
+    padding: 10px 0;
+    box-shadow: 0 0 5px 3px black;
+    background-color: darken($base-color, 15);
+    color: $font-color;
+    margin-top: 20px;
+
+    h2 {
+        margin: 20px;
+    }
+
+    @media screen and (min-width: map-get($breakpoints, sm)) {
+        margin-left: 20px;
+    }
+
+}

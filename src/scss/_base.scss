@@ -1,0 +1,22 @@
+.conteiner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 2px solid #76d275;
+    border-radius: 10px;
+    padding: 0 10px;
+    background-color: darken($base-color, 15);
+    color: $font-color;
+
+
+    &:hover {
+        background-color: #76d275;
+    }
+
+}
