@@ -189,13 +189,65 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/js/Game.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/js/Modal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Modal = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Modal = /*#__PURE__*/function () {
+  function Modal() {
+    _classCallCheck(this, Modal);
+
+    var body = document.querySelector("body");
+    this.div = document.createElement("div");
+    this.h1 = document.createElement("h1");
+    this.div.classList.add("modalDiv");
+    this.h1.classList.add("modalH1");
+    body.appendChild(this.div);
+    this.div.appendChild(this.h1);
+    this.time = 3000;
+  }
+
+  _createClass(Modal, [{
+    key: "displayModal",
+    value: function displayModal(winner) {
+      var _this = this;
+
+      if (winner == "-") {
+        this.h1.textContent = "Hard game! Draw";
+      } else {
+        this.h1.textContent = "Congratulations!!! Player won: ".concat(winner);
+      }
+
+      this.div.style.display = "flex";
+      setTimeout(function () {
+        _this.div.style.display = "none";
+      }, this.time);
+    }
+  }]);
+
+  return Modal;
+}();
+
+exports.Modal = Modal;
+},{}],"src/js/Game.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Game = void 0;
+
+var _Modal = require("./Modal.js");
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -263,6 +315,8 @@ var Game = function Game() {
   };
 
   this.displayResult = function (lastWin) {
+    _this.modal.displayModal(lastWin);
+
     if (lastWin == "X") {
       _this.winX++;
       _this.winsPlayerX.textContent = _this.winX;
@@ -305,11 +359,12 @@ var Game = function Game() {
   this.round = 0;
   this.winX = 0;
   this.winO = 0;
+  this.modal = new _Modal.Modal();
   this.board = [["", "", ""], ["", "", ""], ["", "", ""]];
 };
 
 exports.Game = Game;
-},{}],"src/js/index.js":[function(require,module,exports) {
+},{"./Modal.js":"src/js/Modal.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../scss/style.scss");
@@ -368,7 +423,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58892" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55414" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
