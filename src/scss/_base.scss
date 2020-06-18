@@ -11,9 +11,8 @@ button {
     border: 2px solid #76d275;
     border-radius: 10px;
     padding: 0 10px;
-    background-color: darken($base-color, 15);
+    background-color: rgb(48, 35, 117);
     color: $font-color;
-
 
     &:hover {
         background-color: #76d275;

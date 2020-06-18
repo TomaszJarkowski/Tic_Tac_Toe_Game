@@ -1,6 +1,11 @@
 export {
     Game
 };
+
+import {
+    Modal
+} from "./Modal.js";
+
 class Game {
     constructor() {
         this.playerX = `<i class="fas fa-times"></i>`;
@@ -14,6 +19,7 @@ class Game {
         this.round = 0;
         this.winX = 0;
         this.winO = 0;
+        this.modal = new Modal();
 
         this.board = [
             ["", "", ""],
@@ -103,6 +109,7 @@ class Game {
     };
 
     displayResult = (lastWin) => {
+        this.modal.displayModal(lastWin)
         if (lastWin == "X") {
             this.winX++;
             this.winsPlayerX.textContent = this.winX;
@@ -113,7 +120,6 @@ class Game {
         this.winPlayer.textContent = lastWin;
         this.clearBoard();
     }
-
     clearBoard = () => {
         this.boxes.forEach((box) => {
             box.innerHTML = "";

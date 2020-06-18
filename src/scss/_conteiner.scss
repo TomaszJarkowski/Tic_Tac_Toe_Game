@@ -17,9 +17,9 @@
     flex-wrap: wrap;
     width: 300px;
     justify-content: space-around;
-    box-shadow: 0 0 5px 4px rgb(255, 255, 255);
+    box-shadow: 0 0 5px 1px rgb(255, 255, 255);
     border-radius: 10px;
-    background-color: darken($base-color, 15);
+    background-color: $base-color;
 
     @media screen and (min-width: map-get($breakpoints, sm)) {
         width: 370px;
@@ -32,12 +32,13 @@
         height: 80px;
         margin: 5px;
         background-color: white;
-        box-shadow: 0 0 8px 1px #76d275;
+        box-shadow: 0 0 3px 1px #76d275;
         border-radius: 5px;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: all 0.1s linear;
 
         &:hover {
             background-color: #76d275;
@@ -61,8 +62,8 @@
     border-radius: 25px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 5px 4px rgb(255, 255, 255);
-    background-color: darken($base-color, 15);
+    box-shadow: 0 0 5px 1px rgb(255, 255, 255);
+    background-color: $base-color;
     color: $font-color;
     margin-top: 20px;
 
