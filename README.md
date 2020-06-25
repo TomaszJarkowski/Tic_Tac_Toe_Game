@@ -25,13 +25,13 @@ npm install
 To start a live server, enter in the terminal:
 
 ```
-npm run start
+npm start
 ```
 
 To create a distribution version, type in terminal:
 
 ```
-npm build
+npm run build
 ```
 
 ## Built With
