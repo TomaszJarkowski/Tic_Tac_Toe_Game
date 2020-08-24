@@ -373,7 +373,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.toggle = void 0;
 
 var toggle = function toggle() {
-  var dark = false;
   var toggleLight = document.querySelector(".toggle__light");
   var toggleDark = document.querySelector(".toggle__dark");
   var conteiner = document.querySelector(".conteiner");
@@ -385,9 +384,15 @@ var toggle = function toggle() {
   var header = document.querySelector("header");
   var modal = document.querySelector(".modalDiv");
   var modalH1 = document.querySelector(".modalH1");
+  var dark = localStorage.getItem("dark");
+  dark = JSON.parse(dark);
   checktoggle.addEventListener("click", function () {
     dark = !dark;
+    localStorage.setItem("dark", JSON.stringify(dark));
+    changeColor(dark);
+  });
 
+  var changeColor = function changeColor(dark) {
     if (dark) {
       toggleLight.style.opacity = "0.5";
       toggleDark.style.opacity = "1";
@@ -425,7 +430,17 @@ var toggle = function toggle() {
         box.style.boxShadow = "0 0 7px 0px black";
       });
     }
-  });
+  };
+
+  var changePosition = function changePosition(flague) {
+    if (flague) {
+      var input = document.querySelector("#checktoggle");
+      input.checked = true;
+    }
+  };
+
+  changeColor(dark);
+  changePosition(dark);
 };
 
 exports.toggle = toggle;
@@ -491,7 +506,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64434" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60316" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
