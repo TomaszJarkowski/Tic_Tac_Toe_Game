@@ -1,6 +1,4 @@
 export const toggle = () => {
-  let dark = false;
-
   const toggleLight = document.querySelector(".toggle__light");
   const toggleDark = document.querySelector(".toggle__dark");
   const conteiner = document.querySelector(".conteiner");
@@ -13,9 +11,16 @@ export const toggle = () => {
   const modal = document.querySelector(".modalDiv");
   const modalH1 = document.querySelector(".modalH1");
 
+  let dark = localStorage.getItem("dark");
+  dark = JSON.parse(dark);
+
   checktoggle.addEventListener("click", () => {
     dark = !dark;
+    localStorage.setItem("dark", JSON.stringify(dark));
+    changeColor(dark);
+  });
 
+  const changeColor = (dark) => {
     if (dark) {
       toggleLight.style.opacity = "0.5";
       toggleDark.style.opacity = "1";
@@ -65,5 +70,13 @@ export const toggle = () => {
         box.style.boxShadow = "0 0 7px 0px black";
       });
     }
-  });
+  };
+  const changePosition = (flague) => {
+    if (flague) {
+      const input = document.querySelector("#checktoggle");
+      input.checked = true;
+    }
+  };
+  changeColor(dark);
+  changePosition(dark);
 };
