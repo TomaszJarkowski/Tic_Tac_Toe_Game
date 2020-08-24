@@ -364,12 +364,79 @@ var Game = function Game() {
 };
 
 exports.Game = Game;
-},{"./Modal.js":"src/js/Modal.js"}],"src/js/index.js":[function(require,module,exports) {
+},{"./Modal.js":"src/js/Modal.js"}],"src/js/toggle.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toggle = void 0;
+
+var toggle = function toggle() {
+  var dark = false;
+  var toggleLight = document.querySelector(".toggle__light");
+  var toggleDark = document.querySelector(".toggle__dark");
+  var conteiner = document.querySelector(".conteiner");
+  var checktoggle = document.querySelector("#checktoggle");
+  var board = document.querySelector(".board");
+  var boxs = document.querySelectorAll(".box");
+  var info = document.querySelector(".info");
+  var button = document.querySelector(".info button");
+  var header = document.querySelector("header");
+  var modal = document.querySelector(".modalDiv");
+  var modalH1 = document.querySelector(".modalH1");
+  checktoggle.addEventListener("click", function () {
+    dark = !dark;
+
+    if (dark) {
+      toggleLight.style.opacity = "0.5";
+      toggleDark.style.opacity = "1";
+      conteiner.style.backgroundColor = "#242526";
+      document.body.style.backgroundColor = "#242526";
+      header.style.backgroundColor = "#242526";
+      header.style.boxShadow = "0 0 7px 2px black";
+      board.style.backgroundColor = "#18191A";
+      board.style.boxShadow = "0 0 7px 2px black";
+      modal.style.backgroundColor = "#18191A";
+      modalH1.style.color = "white";
+      info.style.backgroundColor = "#18191A";
+      info.style.boxShadow = "0 0 7px 2px black";
+      info.style.color = "white";
+      button.style.backgroundColor = "#18191A";
+      button.style.border = "2px solid gray";
+      button.style.color = "white";
+    } else {
+      toggleLight.style.opacity = "1";
+      toggleDark.style.opacity = "0.5";
+      conteiner.style.backgroundColor = "#F7F7F7";
+      document.body.style.backgroundColor = "#F7F7F7";
+      board.style.backgroundColor = "gray";
+      board.style.boxShadow = "0 0 7px 0 black";
+      header.style.backgroundColor = "gray";
+      header.style.boxShadow = "0 0 7px 0 black";
+      info.style.backgroundColor = "gray";
+      info.style.boxShadow = "0 0 7px 0px black";
+      modal.style.backgroundColor = "gray";
+      modalH1.style.color = "white";
+      button.style.backgroundColor = "white";
+      button.style.border = "2px solid black";
+      button.style.color = "black";
+      boxs.forEach(function (box) {
+        box.style.boxShadow = "0 0 7px 0px black";
+      });
+    }
+  });
+};
+
+exports.toggle = toggle;
+},{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../scss/style.scss");
 
 var _Game = require("./Game.js");
+
+var _toggle = require("./toggle.js");
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -387,6 +454,7 @@ var boxes = _toConsumableArray(document.querySelectorAll(".box"));
 
 var btnReset = document.querySelector("button");
 var game = new _Game.Game();
+(0, _toggle.toggle)();
 boxes.forEach(function (box) {
   return box.addEventListener("click", function (e) {
     return game.pick(e);
@@ -395,7 +463,7 @@ boxes.forEach(function (box) {
 btnReset.addEventListener("click", function () {
   return game.resetResult();
 });
-},{"../scss/style.scss":"src/scss/style.scss","./Game.js":"src/js/Game.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../scss/style.scss":"src/scss/style.scss","./Game.js":"src/js/Game.js","./toggle.js":"src/js/toggle.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -423,7 +491,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55414" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64434" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -153,7 +153,7 @@ h2 {
 }
 
 i {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .conteiner {
@@ -166,23 +166,115 @@ button {
   background: none;
   cursor: pointer;
   font-size: 1.5rem;
-  border: 2px solid #76d275;
+  border: 2px solid black;
   border-radius: 10px;
-  padding: 0 10px;
-  background-color: #302375;
-  color: white;
+  padding: 5px;
+  background-color: white;
+  color: black;
 }
 button:hover {
   background-color: #76d275;
 }
+button:focus {
+  outline: none;
+}
+button:active {
+  box-shadow: 0 0 3px 0px white;
+}
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: #2b4780;
+  background-color: grey;
   color: white;
   height: 100px;
+  box-shadow: 0 0 7px 0 black;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+header h1 {
+  margin: 10px;
+}
+header .toggle__dark {
+  opacity: 0.5;
+}
+header .toggleDarkLight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .toggleDarkLight h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 15px;
+}
+@media (min-width: 500px) {
+  header .toggleDarkLight h2 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 800px) {
+  header .toggleDarkLight h2 {
+    font-size: 20px;
+  }
+}
+header .toggle {
+  width: 55px;
+  height: 20px;
+  position: relative;
+}
+@media (min-width: 500px) {
+  header .toggle {
+    height: 25px;
+  }
+}
+header .toggle input[type=checkbox] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -2;
+  border: none;
+  outline: none;
+}
+header .toggle label {
+  width: 55px;
+  height: 20px;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #F37A5D;
+  transition: background 0.2s ease-in-out;
+}
+@media (min-width: 500px) {
+  header .toggle label {
+    height: 25px;
+  }
+}
+header .toggle label:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #3F4A63;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+@media (min-width: 500px) {
+  header .toggle label:after {
+    width: 25px;
+    height: 25px;
+  }
+}
+header .toggle input[type=checkbox]:checked + label:after {
+  left: 37px;
+}
+header .toggle input[type=checkbox]:checked + label {
+  background: #FEC483;
 }
 
 .conteiner {
@@ -204,9 +296,9 @@ header {
   flex-wrap: wrap;
   width: 300px;
   justify-content: space-around;
-  box-shadow: 0 0 5px 1px white;
+  box-shadow: 0 0 7px 0 black;
   border-radius: 10px;
-  background-color: #2b4780;
+  background-color: grey;
 }
 @media screen and (min-width: 800px) {
   .board {
@@ -220,7 +312,7 @@ header {
   height: 80px;
   margin: 5px;
   background-color: white;
-  box-shadow: 0 0 3px 1px #76d275;
+  box-shadow: 0 0 7px 0px black;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -230,9 +322,6 @@ header {
 }
 .board .box:hover {
   background-color: #76d275;
-}
-.board .box .box i {
-  font-size: 40px;
 }
 @media screen and (min-width: 800px) {
   .board .box {
@@ -246,8 +335,8 @@ header {
   border-radius: 25px;
   width: 200px;
   padding: 10px 0;
-  box-shadow: 0 0 5px 1px white;
-  background-color: #2b4780;
+  box-shadow: 0 0 7px 0 black;
+  background-color: grey;
   color: white;
   margin-top: 20px;
 }
@@ -268,7 +357,7 @@ header {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #2b4780;
+  background-color: grey;
   transition: linear 2s all;
   align-items: center;
   justify-content: center;
@@ -328,7 +417,7 @@ header {
   }
 }
 body {
-  background-color: #152036;
+  background-color: #F7F7F7;
 }
 
 /*# sourceMappingURL=/js.d818e0ef.css.map */
