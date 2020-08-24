@@ -17,7 +17,7 @@
     flex-wrap: wrap;
     width: 300px;
     justify-content: space-around;
-    box-shadow: 0 0 5px 1px rgb(255, 255, 255);
+    box-shadow: 0 0 7px 0 black;
     border-radius: 10px;
     background-color: $base-color;
 
@@ -32,7 +32,7 @@
         height: 80px;
         margin: 5px;
         background-color: white;
-        box-shadow: 0 0 3px 1px #76d275;
+        box-shadow: 0 0 7px 0px black;
         border-radius: 5px;
         cursor: pointer;
         display: flex;
@@ -44,9 +44,6 @@
             background-color: #76d275;
         }
 
-        .box i {
-            font-size: 40px;
-        }
 
         @media screen and (min-width: map-get($breakpoints, sm)) {
             width: 100px;
@@ -57,12 +54,11 @@
 }
 
 .info {
-
     text-align: center;
     border-radius: 25px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 5px 1px rgb(255, 255, 255);
+    box-shadow: 0 0 7px 0 black;
     background-color: $base-color;
     color: $font-color;
     margin-top: 20px;

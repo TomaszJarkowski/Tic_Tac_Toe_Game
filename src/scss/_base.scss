@@ -8,14 +8,22 @@ button {
     background: none;
     cursor: pointer;
     font-size: 1.5rem;
-    border: 2px solid #76d275;
+    border: 2px solid black;
     border-radius: 10px;
-    padding: 0 10px;
-    background-color: rgb(48, 35, 117);
-    color: $font-color;
+    padding: 5px;
+    background-color: white;
+    color: black;
 
     &:hover {
         background-color: #76d275;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        box-shadow: 0 0 3px 0px white;
     }
 
 }
