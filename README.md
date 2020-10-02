@@ -14,7 +14,7 @@ This game contains leaderboards in which you can find out:
 
 ## Dark:
 
-![screen_second](./src/img/screen-second.png)
+![screen_second](./src/img/screen-second.PNG)
 
 ## Getting Started
 

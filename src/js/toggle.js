@@ -10,7 +10,6 @@ export const toggle = () => {
   const header = document.querySelector("header");
   const modal = document.querySelector(".modalDiv");
   const modalH1 = document.querySelector(".modalH1");
-
   let dark = localStorage.getItem("dark");
   dark = JSON.parse(dark);
 
@@ -53,7 +52,7 @@ export const toggle = () => {
       board.style.backgroundColor = "gray";
       board.style.boxShadow = "0 0 7px 0 black";
 
-      header.style.backgroundColor = "gray";
+      header.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
       header.style.boxShadow = "0 0 7px 0 black";
 
       info.style.backgroundColor = "gray";

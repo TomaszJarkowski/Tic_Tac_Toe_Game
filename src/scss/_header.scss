@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
 header {
     display: flex;
     justify-content: space-evenly;
@@ -9,7 +11,46 @@ header {
     max-width: 2000px;
     margin: 0 auto;
 
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+        border-radius: 15px;
+
+        img {
+            width: 100px;
+        }
+
+        p {
+            font-family: 'Concert One', cursive;
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: #6ac540;
+
+        }
+    }
+
+    .toggleMusic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border: 3px solid #6ac540;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 15px;
+
+        i {
+            text-shadow: 0 0 2px white;
+            font-size: 30px;
+        }
+    }
+
     h1 {
+
+
         margin: 10px;
     }
 
