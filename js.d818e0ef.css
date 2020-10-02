@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 html,
 body,
 div,
@@ -192,6 +193,36 @@ header {
   box-shadow: 0 0 7px 0 black;
   max-width: 2000px;
   margin: 0 auto;
+}
+header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 15px;
+}
+header .logo img {
+  width: 100px;
+}
+header .logo p {
+  font-family: "Concert One", cursive;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #6ac540;
+}
+header .toggleMusic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 3px solid #6ac540;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+header .toggleMusic i {
+  text-shadow: 0 0 2px white;
+  font-size: 30px;
 }
 header h1 {
   margin: 10px;
