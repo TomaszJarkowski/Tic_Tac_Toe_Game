@@ -3579,6 +3579,8 @@ var global = arguments[3];
 
 },{}],"src/music/Smooth-Jazz.mp3":[function(require,module,exports) {
 module.exports = "/Smooth-Jazz.4c65eb68.mp3";
+},{}],"src/music/Smooth-Jazz.webm":[function(require,module,exports) {
+module.exports = "/Smooth-Jazz.c3dc32ba.webm";
 },{}],"src/js/music.js":[function(require,module,exports) {
 "use strict";
 
@@ -3591,15 +3593,16 @@ var _howler = require("howler");
 
 var _SmoothJazz = _interopRequireDefault(require("../music/Smooth-Jazz.mp3"));
 
+var _SmoothJazz2 = _interopRequireDefault(require("../music/Smooth-Jazz.webm"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var music = function music() {
   var toggleMusic = document.querySelector(".toggleMusic");
   var icon = document.querySelector(".fas");
   var sound = new _howler.Howl({
-    src: [_SmoothJazz.default],
-    loop: true,
-    html5: false
+    src: [_SmoothJazz.default, _SmoothJazz2.default],
+    loop: true
   });
   _howler.Howler.mobileAutoEnable = false;
   var isPlaying;
@@ -3661,7 +3664,7 @@ var music = function music() {
 };
 
 exports.music = music;
-},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3"}],"src/js/toggle.js":[function(require,module,exports) {
+},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3","../music/Smooth-Jazz.webm":"src/music/Smooth-Jazz.webm"}],"src/js/toggle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3811,7 +3814,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55415" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58247" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
