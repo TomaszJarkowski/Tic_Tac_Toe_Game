@@ -1,10 +1,10 @@
-import { Howl } from "howler";
-import audio from "../music/Smooth-Jazz.mp3";
+import { Howl, Howler } from "howler";
+import audioMP3 from "../music/Smooth-Jazz.mp3";
 export const music = () => {
   const toggleMusic = document.querySelector(".toggleMusic");
   const icon = document.querySelector(".fas");
   const sound = new Howl({
-    src: [audio],
+    src: [audioMP3],
     loop: true,
   });
 
