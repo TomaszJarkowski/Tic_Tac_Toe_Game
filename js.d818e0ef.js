@@ -223,9 +223,9 @@ var Modal = /*#__PURE__*/function () {
       var _this = this;
 
       if (winner == "-") {
-        this.h1.textContent = "Hard game! Draw";
+        this.h1.innerHTML = "Hard game! Draw";
       } else {
-        this.h1.textContent = "Congratulations!!! Player won: ".concat(winner);
+        this.h1.innerHTML = "Congratulations!!! Player <span>".concat(winner, "</span> won");
       }
 
       this.div.style.display = "flex";
@@ -3579,8 +3579,6 @@ var global = arguments[3];
 
 },{}],"src/music/Smooth-Jazz.mp3":[function(require,module,exports) {
 module.exports = "/Smooth-Jazz.4c65eb68.mp3";
-},{}],"src/music/Smooth-Jazz.webm":[function(require,module,exports) {
-module.exports = "/Smooth-Jazz.c3dc32ba.webm";
 },{}],"src/js/music.js":[function(require,module,exports) {
 "use strict";
 
@@ -3593,18 +3591,15 @@ var _howler = require("howler");
 
 var _SmoothJazz = _interopRequireDefault(require("../music/Smooth-Jazz.mp3"));
 
-var _SmoothJazz2 = _interopRequireDefault(require("../music/Smooth-Jazz.webm"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var music = function music() {
   var toggleMusic = document.querySelector(".toggleMusic");
   var icon = document.querySelector(".fas");
   var sound = new _howler.Howl({
-    src: [_SmoothJazz.default, _SmoothJazz2.default],
+    src: [_SmoothJazz.default],
     loop: true
   });
-  _howler.Howler.mobileAutoEnable = false;
   var isPlaying;
   var isLoading = true;
   var timeID = setInterval(function () {
@@ -3664,7 +3659,7 @@ var music = function music() {
 };
 
 exports.music = music;
-},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3","../music/Smooth-Jazz.webm":"src/music/Smooth-Jazz.webm"}],"src/js/toggle.js":[function(require,module,exports) {
+},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3"}],"src/js/toggle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3814,7 +3809,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58247" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59335" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

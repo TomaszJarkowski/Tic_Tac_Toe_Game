@@ -456,12 +456,12 @@ header .toggle input[type=checkbox]:checked + label {
 
 .modalDiv {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 4;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  right: 0;
+  height: 100%;
   background-color: grey;
   transition: linear 2s all;
   align-items: center;
@@ -473,6 +473,9 @@ header .toggle input[type=checkbox]:checked + label {
   animation: bounce-in-top 1.1s both;
   text-align: center;
   color: white;
+}
+.modalH1 span {
+  color: #6ac540;
 }
 @media (min-width: 650px) {
   .modalH1 {
