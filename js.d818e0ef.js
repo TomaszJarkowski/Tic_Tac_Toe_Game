@@ -3600,6 +3600,7 @@ var music = function music() {
     src: [_SmoothJazz.default],
     loop: true
   });
+  _howler.Howler.mobileAutoEnable = false;
   var isPlaying;
   var isLoading = true;
   var timeID = setInterval(function () {
@@ -3809,7 +3810,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52895" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55565" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
