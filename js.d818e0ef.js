@@ -3601,6 +3601,14 @@ var music = function music() {
     loop: true
   });
   var isPlaying;
+  var isLoading = true;
+  var timeID = setInterval(function () {
+    if (sound.state() === "loaded") {
+      isLoading = false;
+      decoration();
+      clearInterval(timeID);
+    }
+  }, 1000);
 
   if (localStorage.getItem("isPlaying") == "true") {
     isPlaying = true;
@@ -3617,9 +3625,15 @@ var music = function music() {
 
   var decoration = function decoration() {
     if (isPlaying) {
-      toggleMusic.style.border = "3px solid #6ac540";
-      icon.style.color = "#6ac540";
-      icon.style.textDecoration = "none";
+      if (isLoading) {
+        toggleMusic.style.border = "3px solid orange";
+        toggleMusic.style.animation = "sk-scaleout 1.0s infinite ease-in-out";
+        icon.style.color = "orange";
+      } else {
+        toggleMusic.style.border = "3px solid #6ac540";
+        toggleMusic.style.animation = "0";
+        icon.style.color = "#6ac540";
+      }
     } else {
       toggleMusic.style.border = "3px solid gray";
       icon.style.color = "gray";
@@ -3795,7 +3809,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52221" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52895" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
