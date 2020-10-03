@@ -7,7 +7,17 @@ export const music = () => {
     src: [audio],
     loop: true,
   });
+
   let isPlaying;
+  let isLoading = true;
+
+  const timeID = setInterval(() => {
+    if (sound.state() === "loaded") {
+      isLoading = false;
+      decoration();
+      clearInterval(timeID);
+    }
+  }, 1000);
 
   if (localStorage.getItem("isPlaying") == "true") {
     isPlaying = true;
@@ -24,9 +34,15 @@ export const music = () => {
 
   const decoration = () => {
     if (isPlaying) {
-      toggleMusic.style.border = "3px solid #6ac540";
-      icon.style.color = "#6ac540";
-      icon.style.textDecoration = "none";
+      if (isLoading) {
+        toggleMusic.style.border = "3px solid orange";
+        toggleMusic.style.animation = "sk-scaleout 1.0s infinite ease-in-out";
+        icon.style.color = "orange";
+      } else {
+        toggleMusic.style.border = "3px solid #6ac540";
+        toggleMusic.style.animation = "0";
+        icon.style.color = "#6ac540";
+      }
     } else {
       toggleMusic.style.border = "3px solid gray";
       icon.style.color = "gray";

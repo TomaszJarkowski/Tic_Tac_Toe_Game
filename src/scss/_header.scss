@@ -76,7 +76,6 @@ header {
         }
 
         i {
-            text-shadow: 0 0 2px white;
             font-size: 20px;
 
             @media(min-width: map-get($breakpoints, xs)) {
@@ -179,5 +178,30 @@ header {
 
     .toggle input[type="checkbox"]:checked+label {
         background: #FEC483;
+    }
+}
+
+
+@-webkit-keyframes sk-scaleout {
+    0% {
+        -webkit-transform: scale(0)
+    }
+
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+    }
+}
+
+@keyframes sk-scaleout {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+        opacity: 0;
     }
 }
