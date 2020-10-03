@@ -3599,7 +3599,7 @@ var music = function music() {
   var sound = new _howler.Howl({
     src: [_SmoothJazz.default],
     loop: true,
-    html5: true
+    html5: false
   });
   _howler.Howler.mobileAutoEnable = false;
   var isPlaying;
