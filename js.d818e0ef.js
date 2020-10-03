@@ -3598,7 +3598,8 @@ var music = function music() {
   var icon = document.querySelector(".fas");
   var sound = new _howler.Howl({
     src: [_SmoothJazz.default],
-    loop: true
+    loop: true,
+    html5: true
   });
   _howler.Howler.mobileAutoEnable = false;
   var isPlaying;
@@ -3810,7 +3811,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55565" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55415" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
