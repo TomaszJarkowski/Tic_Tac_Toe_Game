@@ -187,12 +187,20 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   background-color: grey;
   color: white;
-  height: 100px;
+  min-height: 100px;
   box-shadow: 0 0 7px 0 black;
   max-width: 2000px;
   margin: 0 auto;
+  padding: 20px 0;
+}
+@media (min-width: 800px) {
+  header {
+    flex-direction: row;
+    padding: 0;
+  }
 }
 header .logo {
   display: flex;
@@ -200,15 +208,41 @@ header .logo {
   align-items: center;
   padding: 0 10px;
   border-radius: 15px;
+  margin-bottom: 30px;
+}
+@media (min-width: 800px) {
+  header .logo {
+    margin-bottom: 0;
+  }
 }
 header .logo img {
-  width: 100px;
+  width: 60px;
+}
+@media (min-width: 500px) {
+  header .logo img {
+    width: 80px;
+  }
+}
+@media (min-width: 800px) {
+  header .logo img {
+    width: 100px;
+  }
 }
 header .logo p {
   font-family: "Concert One", cursive;
-  font-size: 26px;
+  font-size: 20px;
   letter-spacing: 2px;
   color: #6ac540;
+}
+@media (min-width: 500px) {
+  header .logo p {
+    font-size: 22px;
+  }
+}
+@media (min-width: 800px) {
+  header .logo p {
+    font-size: 26px;
+  }
 }
 header .toggleMusic {
   display: flex;
@@ -219,13 +253,34 @@ header .toggleMusic {
   padding: 10px;
   cursor: pointer;
   border-radius: 15px;
+  margin-bottom: 20px;
+}
+@media (min-width: 800px) {
+  header .toggleMusic {
+    margin-bottom: 0;
+  }
 }
 header .toggleMusic i {
   text-shadow: 0 0 2px white;
-  font-size: 30px;
+  font-size: 20px;
+}
+@media (min-width: 500px) {
+  header .toggleMusic i {
+    font-size: 24px;
+  }
+}
+@media (min-width: 800px) {
+  header .toggleMusic i {
+    font-size: 30px;
+  }
 }
 header h1 {
-  margin: 10px;
+  margin-bottom: 20px;
+}
+@media (min-width: 800px) {
+  header h1 {
+    margin-bottom: 0;
+  }
 }
 header .toggle__dark {
   opacity: 0.5;
