@@ -4,12 +4,19 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
     background-color: $base-color;
     color: $font-color;
-    height: 100px;
+    min-height: 100px;
     box-shadow: 0 0 7px 0 black;
     max-width: 2000px;
     margin: 0 auto;
+    padding: 20px 0;
+
+    @media(min-width: map-get($breakpoints, sm)) {
+        flex-direction: row;
+        padding: 0;
+    }
 
 
     .logo {
@@ -18,16 +25,37 @@ header {
         align-items: center;
         padding: 0 10px;
         border-radius: 15px;
+        margin-bottom: 30px;
+
+        @media(min-width: map-get($breakpoints, sm)) {
+            margin-bottom: 0;
+        }
 
         img {
-            width: 100px;
+            width: 60px;
+
+            @media(min-width: map-get($breakpoints, xs)) {
+                width: 80px;
+            }
+
+            @media(min-width: map-get($breakpoints, sm)) {
+                width: 100px;
+            }
         }
 
         p {
             font-family: 'Concert One', cursive;
-            font-size: 26px;
+            font-size: 20px;
             letter-spacing: 2px;
             color: #6ac540;
+
+            @media(min-width: map-get($breakpoints, xs)) {
+                font-size: 22px;
+            }
+
+            @media(min-width: map-get($breakpoints, sm)) {
+                font-size: 26px;
+            }
 
         }
     }
@@ -41,17 +69,32 @@ header {
         padding: 10px;
         cursor: pointer;
         border-radius: 15px;
+        margin-bottom: 20px;
+
+        @media(min-width: map-get($breakpoints, sm)) {
+            margin-bottom: 0;
+        }
 
         i {
             text-shadow: 0 0 2px white;
-            font-size: 30px;
+            font-size: 20px;
+
+            @media(min-width: map-get($breakpoints, xs)) {
+                font-size: 24px;
+            }
+
+            @media(min-width: map-get($breakpoints, sm)) {
+                font-size: 30px;
+            }
         }
     }
 
     h1 {
+        margin-bottom: 20px;
 
-
-        margin: 10px;
+        @media(min-width: map-get($breakpoints, sm)) {
+            margin-bottom: 0;
+        }
     }
 
     .toggle__dark {

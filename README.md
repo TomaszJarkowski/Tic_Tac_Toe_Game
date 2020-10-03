@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 
-A Tic Tac Toe is a simple game built with Vanilla.js. Tic tac toe is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. Thanks to the switch, we can change the colors (light / dark).Local Storage was also used for the application to save the theme.
+A Tic Tac Toe is a simple game built with Vanilla.js. Tic tac toe is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. Thanks to the switch, we can change the colors (light / dark).Local Storage was also used for the application to save the theme. The scoreboard is also saved in the local storage. The user has the option of listening to at least music while playing.
 
 This game contains leaderboards in which you can find out:
 
@@ -14,7 +14,7 @@ This game contains leaderboards in which you can find out:
 
 ## Dark:
 
-![screen_second](./src/img/screen-second.PNG)
+![screen_second](./src/img/screen-second.png)
 
 ## Getting Started
 
@@ -47,6 +47,7 @@ npm run build
 - JavaScript
 - GIT
 - Parcel
+- Howler JS
 - Local Storage
 
 ## Author
