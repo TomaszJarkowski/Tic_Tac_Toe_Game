@@ -3579,6 +3579,49 @@ var global = arguments[3];
 
 },{}],"src/music/Smooth-Jazz.mp3":[function(require,module,exports) {
 module.exports = "/Smooth-Jazz.4c65eb68.mp3";
+},{}],"src/js/theme.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.theme = void 0;
+var theme = {
+  light: {
+    bgColor: "#F7F7F7",
+    bgColorHeader: "rgba(0,0,0,0.7)",
+    boardColor: "gray",
+    shadow: "0 0 7px 0 black",
+    fontColor: "black",
+    buttonBorder: "2px solid black",
+    bgColorButton: "white"
+  },
+  dark: {
+    bgColor: "#242526",
+    bgColorHeader: "#242526",
+    boardColor: "#18191A",
+    shadow: "0 0 7px 2px black",
+    fontColor: "white",
+    buttonBorder: "2px solid gray",
+    bgColorButton: "#18191A"
+  },
+  musicActive: {
+    buttonBorder: "3px solid #6ac540",
+    buttonColor: "#6ac540",
+    buttonAnimation: ""
+  },
+  musicNotActive: {
+    buttonBorder: "3px solid gray",
+    buttonColor: "gray",
+    buttonAnimation: ""
+  },
+  musicLoading: {
+    buttonBorder: "3px solid orange",
+    buttonColor: "orange",
+    buttonAnimation: "sk-scaleout 1.0s infinite ease-in-out"
+  }
+};
+exports.theme = theme;
 },{}],"src/js/music.js":[function(require,module,exports) {
 "use strict";
 
@@ -3590,6 +3633,8 @@ exports.music = void 0;
 var _howler = require("howler");
 
 var _SmoothJazz = _interopRequireDefault(require("../music/Smooth-Jazz.mp3"));
+
+var _theme = require("./theme");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3626,17 +3671,18 @@ var music = function music() {
   var decoration = function decoration() {
     if (isPlaying) {
       if (isLoading) {
-        toggleMusic.style.border = "3px solid orange";
-        toggleMusic.style.animation = "sk-scaleout 1.0s infinite ease-in-out";
-        icon.style.color = "orange";
+        toggleMusic.style.border = _theme.theme.musicLoading.buttonBorder;
+        toggleMusic.style.animation = _theme.theme.musicLoading.buttonAnimation;
+        icon.style.color = _theme.theme.musicLoading.buttonColor;
       } else {
-        toggleMusic.style.border = "3px solid #6ac540";
-        toggleMusic.style.animation = "0";
-        icon.style.color = "#6ac540";
+        toggleMusic.style.border = _theme.theme.musicActive.buttonBorder;
+        toggleMusic.style.animation = _theme.theme.musicActive.buttonAnimation;
+        icon.style.color = _theme.theme.musicActive.buttonColor;
       }
     } else {
-      toggleMusic.style.border = "3px solid gray";
-      icon.style.color = "gray";
+      toggleMusic.style.border = _theme.theme.musicNotActive.buttonBorder;
+      toggleMusic.style.animation = _theme.theme.musicNotActive.buttonAnimation;
+      icon.style.color = _theme.theme.musicNotActive.buttonColor;
     }
   };
 
@@ -3659,35 +3705,7 @@ var music = function music() {
 };
 
 exports.music = music;
-},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3"}],"src/js/theme.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.theme = void 0;
-var theme = {
-  light: {
-    bgColor: "#F7F7F7",
-    bgColorHeader: "rgba(0,0,0,0.7)",
-    boardColor: "gray",
-    shadow: "0 0 7px 0 black",
-    fontColor: "black",
-    buttonBorder: "2px solid black",
-    bgColorButton: "white"
-  },
-  dark: {
-    bgColor: "#242526",
-    bgColorHeader: "#242526",
-    boardColor: "#18191A",
-    shadow: "0 0 7px 2px black",
-    fontColor: "white",
-    buttonBorder: "2px solid gray",
-    bgColorButton: "#18191A"
-  }
-};
-exports.theme = theme;
-},{}],"src/js/toggle.js":[function(require,module,exports) {
+},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3","./theme":"src/js/theme.js"}],"src/js/toggle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3842,7 +3860,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64271" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65486" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
