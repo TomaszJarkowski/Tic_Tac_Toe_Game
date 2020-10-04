@@ -3659,7 +3659,35 @@ var music = function music() {
 };
 
 exports.music = music;
-},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3"}],"src/js/toggle.js":[function(require,module,exports) {
+},{"howler":"node_modules/howler/dist/howler.js","../music/Smooth-Jazz.mp3":"src/music/Smooth-Jazz.mp3"}],"src/js/theme.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.theme = void 0;
+var theme = {
+  light: {
+    bgColor: "#F7F7F7",
+    bgColorHeader: "rgba(0,0,0,0.7)",
+    boardColor: "gray",
+    shadow: "0 0 7px 0 black",
+    fontColor: "black",
+    buttonBorder: "2px solid black",
+    bgColorButton: "white"
+  },
+  dark: {
+    bgColor: "#242526",
+    bgColorHeader: "#242526",
+    boardColor: "#18191A",
+    shadow: "0 0 7px 2px black",
+    fontColor: "white",
+    buttonBorder: "2px solid gray",
+    bgColorButton: "#18191A"
+  }
+};
+exports.theme = theme;
+},{}],"src/js/toggle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3667,18 +3695,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.toggle = void 0;
 
+var _theme = require("./theme");
+
 var toggle = function toggle() {
   var toggleLight = document.querySelector(".toggle__light");
   var toggleDark = document.querySelector(".toggle__dark");
   var conteiner = document.querySelector(".conteiner");
   var checktoggle = document.querySelector("#checktoggle");
   var board = document.querySelector(".board");
-  var boxs = document.querySelectorAll(".box");
   var info = document.querySelector(".info");
   var button = document.querySelector(".info button");
   var header = document.querySelector("header");
   var modal = document.querySelector(".modalDiv");
-  var modalH1 = document.querySelector(".modalH1");
   var dark = localStorage.getItem("dark");
   dark = JSON.parse(dark);
   checktoggle.addEventListener("click", function () {
@@ -3687,44 +3715,49 @@ var toggle = function toggle() {
     changeColor(dark);
   });
 
+  var changeColorInHtml = function changeColorInHtml(toggleDarkOpacity, toggleLightOpacity, bgColor, shadow, boardColor, fontColor, buttonBorder, bgColorButton, bgColorHeader) {
+    toggleLight.style.opacity = toggleLightOpacity;
+    toggleDark.style.opacity = toggleDarkOpacity;
+    conteiner.style.backgroundColor = bgColor;
+    document.body.style.backgroundColor = bgColor;
+    header.style.backgroundColor = bgColorHeader;
+    header.style.boxShadow = shadow;
+    board.style.backgroundColor = boardColor;
+    board.style.boxShadow = shadow;
+    modal.style.backgroundColor = boardColor;
+    info.style.backgroundColor = boardColor;
+    info.style.boxShadow = shadow;
+    button.style.backgroundColor = bgColorButton;
+    button.style.border = buttonBorder;
+    button.style.color = fontColor;
+  };
+
   var changeColor = function changeColor(dark) {
+    var toggleDarkOpacity, toggleLightOpacity, bgColor, shadow, boardColor, fontColor, buttonBorder, bgColorButton, bgColorHeader;
+
     if (dark) {
-      toggleLight.style.opacity = "0.5";
-      toggleDark.style.opacity = "1";
-      conteiner.style.backgroundColor = "#242526";
-      document.body.style.backgroundColor = "#242526";
-      header.style.backgroundColor = "#242526";
-      header.style.boxShadow = "0 0 7px 2px black";
-      board.style.backgroundColor = "#18191A";
-      board.style.boxShadow = "0 0 7px 2px black";
-      modal.style.backgroundColor = "#18191A";
-      modalH1.style.color = "white";
-      info.style.backgroundColor = "#18191A";
-      info.style.boxShadow = "0 0 7px 2px black";
-      info.style.color = "white";
-      button.style.backgroundColor = "#18191A";
-      button.style.border = "2px solid gray";
-      button.style.color = "white";
+      toggleDarkOpacity = "1";
+      toggleLightOpacity = "0.5";
+      bgColor = _theme.theme.dark.bgColor;
+      shadow = _theme.theme.dark.shadow;
+      boardColor = _theme.theme.dark.boardColor;
+      fontColor = _theme.theme.dark.fontColor;
+      buttonBorder = _theme.theme.dark.buttonBorder;
+      bgColorButton = _theme.theme.dark.bgColorButton;
+      bgColorHeader = _theme.theme.dark.bgColorHeader;
     } else {
-      toggleLight.style.opacity = "1";
-      toggleDark.style.opacity = "0.5";
-      conteiner.style.backgroundColor = "#F7F7F7";
-      document.body.style.backgroundColor = "#F7F7F7";
-      board.style.backgroundColor = "gray";
-      board.style.boxShadow = "0 0 7px 0 black";
-      header.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-      header.style.boxShadow = "0 0 7px 0 black";
-      info.style.backgroundColor = "gray";
-      info.style.boxShadow = "0 0 7px 0px black";
-      modal.style.backgroundColor = "gray";
-      modalH1.style.color = "white";
-      button.style.backgroundColor = "white";
-      button.style.border = "2px solid black";
-      button.style.color = "black";
-      boxs.forEach(function (box) {
-        box.style.boxShadow = "0 0 7px 0px black";
-      });
+      toggleDarkOpacity = "0.5";
+      toggleLightOpacity = "1";
+      bgColor = _theme.theme.light.bgColor;
+      shadow = _theme.theme.light.shadow;
+      boardColor = _theme.theme.light.boardColor;
+      fontColor = _theme.theme.light.fontColor;
+      buttonBorder = _theme.theme.light.buttonBorder;
+      bgColorButton = _theme.theme.light.bgColorButton;
+      bgColorHeader = _theme.theme.light.bgColorHeader;
     }
+
+    changeColorInHtml(toggleDarkOpacity, toggleLightOpacity, bgColor, shadow, boardColor, fontColor, buttonBorder, bgColorButton, bgColorHeader);
   };
 
   var changePosition = function changePosition(flague) {
@@ -3739,7 +3772,7 @@ var toggle = function toggle() {
 };
 
 exports.toggle = toggle;
-},{}],"src/js/index.js":[function(require,module,exports) {
+},{"./theme":"src/js/theme.js"}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../scss/style.scss");
@@ -3809,7 +3842,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59335" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64271" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
