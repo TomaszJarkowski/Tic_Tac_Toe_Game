@@ -17,4 +17,19 @@ export const theme = {
     buttonBorder: "2px solid gray",
     bgColorButton: "#18191A",
   },
+  musicActive: {
+    buttonBorder: "3px solid #6ac540",
+    buttonColor: "#6ac540",
+    buttonAnimation: "",
+  },
+  musicNotActive: {
+    buttonBorder: "3px solid gray",
+    buttonColor: "gray",
+    buttonAnimation: "",
+  },
+  musicLoading: {
+    buttonBorder: "3px solid orange",
+    buttonColor: "orange",
+    buttonAnimation: "sk-scaleout 1.0s infinite ease-in-out",
+  },
 };

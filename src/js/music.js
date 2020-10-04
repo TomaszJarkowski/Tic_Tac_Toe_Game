@@ -1,5 +1,6 @@
 import { Howl, Howler } from "howler";
 import audioMP3 from "../music/Smooth-Jazz.mp3";
+import { theme } from "./theme";
 export const music = () => {
   const toggleMusic = document.querySelector(".toggleMusic");
   const icon = document.querySelector(".fas");
@@ -35,17 +36,18 @@ export const music = () => {
   const decoration = () => {
     if (isPlaying) {
       if (isLoading) {
-        toggleMusic.style.border = "3px solid orange";
-        toggleMusic.style.animation = "sk-scaleout 1.0s infinite ease-in-out";
-        icon.style.color = "orange";
+        toggleMusic.style.border = theme.musicLoading.buttonBorder;
+        toggleMusic.style.animation = theme.musicLoading.buttonAnimation;
+        icon.style.color = theme.musicLoading.buttonColor;
       } else {
-        toggleMusic.style.border = "3px solid #6ac540";
-        toggleMusic.style.animation = "0";
-        icon.style.color = "#6ac540";
+        toggleMusic.style.border = theme.musicActive.buttonBorder;
+        toggleMusic.style.animation = theme.musicActive.buttonAnimation;
+        icon.style.color = theme.musicActive.buttonColor;
       }
     } else {
-      toggleMusic.style.border = "3px solid gray";
-      icon.style.color = "gray";
+      toggleMusic.style.border = theme.musicNotActive.buttonBorder;
+      toggleMusic.style.animation = theme.musicNotActive.buttonAnimation;
+      icon.style.color = theme.musicNotActive.buttonColor;
     }
   };
   const handleMusic = () => {
